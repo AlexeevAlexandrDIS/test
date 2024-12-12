@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import './ProductList.css'
 import ProductItem from "../ProductItem/ProductItem";
-import {useTelegram} from "../Hooks/UseTelegram";
+import {useTelegram} from "../../hooks/useTelegram";
 
 const products = [
     {id: '1', title: 'Видеокарта', price: 45000, description: 'RTX 4060'},
