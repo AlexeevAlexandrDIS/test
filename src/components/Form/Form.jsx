@@ -4,18 +4,24 @@ import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
     const [country, setCountry] = useState('');
+    const [name, setName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [middleName, setMiddleName] = useState('');
     const [street, setStreet] = useState('');
     const [subject, setSubject] = useState('physical');
     const {tg} = useTelegram();
 
     const onSendData = useCallback(() => {
         const data = {
+            name,
+            lastName,
+            middleName,
             country,
             street,
             subject
         }
         tg.sendData(JSON.stringify(data));
-    }, [country, street, subject])
+    }, [name, lastName, middleName, street, subject])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -38,6 +44,17 @@ const Form = () => {
         }
     }, [country, street])
 
+    const onChangeName = (e) => {
+        setName(e.target.value);
+    }
+    const onChangeLastName = (e) => {
+        setLastName(e.target.value);
+    }
+    const onChangeMiddleName = (e) => {
+        setMiddleName(e.target.value);
+    }
+
+
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
     }
@@ -59,6 +76,27 @@ const Form = () => {
                 placeholder={'Страна'}
                 value={country}
                 onChange={onChangeCountry}
+            />
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'Имя'}
+                value={name}
+                onChange={onChangeName}
+            />
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'Фамилия'}
+                value={lastName}
+                onChange={onChangeLastName}
+            />
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'Отчество'}
+                value={middleName}
+                onChange={onChangeMiddleName}
             />
             <input
                 className={'input'}
