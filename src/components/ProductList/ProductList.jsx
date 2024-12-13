@@ -4,7 +4,7 @@ import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 
 const products = [
-    {id: '1', title: 'Видеокарта', price: 15000, description: 'GTX 1650', img: ''},
+    {id: '1', title: 'Видеокарта', price: 15000, description: 'GTX 1650'},
     {id: '2', title: 'Процессор', price: 12000, description: 'Intel Core i5-11400F'},
     {id: '3', title: 'Оперативная память', price: 5000, description: 'Kingston FURY Beast Black'},
     {id: '4', title: 'Накопитель', price: 4000, description: 'ARDOR GAMING Ally'},
